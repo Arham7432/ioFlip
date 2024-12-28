@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;700&family=Unbounded:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: unbounded;
+    background-color: #222;
+    color: lavender;
+}
+
+#home-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.heading h1 span {
+    color: gold;
+}
+
+#card-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.card-front:hover{
+    background-color: #41331c;
+}
+
+.card-front:active{
+    background-color: #523f21;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 0.6s;
+}
+
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    transition: all 0.2s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 4px;
+}
+
+.card-front {
+    background-color: black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back {
+    background-color: #12121271;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    width: 70%;
+    height: auto;
+}
+
+nav {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 3%;
+    align-items: center;
+
+}
+
+.logo img {
+    width: 120px;
+}
+
+.button {
+    font-family: unbounded;
+    --main-focus: #2d8cf0;
+    --font-color: #323232;
+    --bg-color-sub: #ffffff;
+    --bg-color: #eee;
+    --main-color: black;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.button,
+.button__icon,
+.button__text {
+    transition: all 0.3s;
+}
+
+.button .button__text {
+    transform: translateX(30px);
+    color: var(--font-color);
+    font-weight: 600;
+}
+
+.button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button .svg {
+    width: 20px;
+    fill: var(--main-color);
+}
+
+.button:hover {
+    background: var(--bg-color);
+}
+
+.button:hover .button__text {
+    color: transparent;
+}
+
+.button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+}
+
+.button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+}
